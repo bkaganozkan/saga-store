@@ -1,5 +1,7 @@
 <template>
-  <div>League OF Legends</div>
+  <v-app-bar>
+    
+  </v-app-bar>
 </template>
 
 <script>
@@ -9,3 +11,4 @@ export default {
 </script>
 
 <style></style>
+
