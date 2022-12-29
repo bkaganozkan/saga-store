@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "../views/Layout.vue";
-import LeagueOfLegends from "@/components/LeagueOfLegends/LeagueOfLegends.vue";
+import RiotGames from "@/components/LeagueOfLegends/RiotGames.vue";
 
 Vue.use(VueRouter);
 
@@ -14,10 +14,10 @@ const routes = [
   {
     path: "/leagueoflegends",
     name: "leaugeoflegends",
-    component: LeagueOfLegends,
+    component: RiotGames,
   },
 ];
-
+ 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
