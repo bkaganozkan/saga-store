@@ -1,5 +1,5 @@
 <template>
-  <div class="content background"></div>
+  <router-link  to="/metin2" class="content background"></router-link>
 </template>
 
 <script>

@@ -69,8 +69,6 @@ export default {
   mounted() {
     this.league = this.option.leagueOptions[1];
     this.division = this.option.divisionOptions[0];
-    console.log(this.option);
-    console.log("2");
     this.selectedOptionImgUrl =
       this.league.imgUrl + this.division.imgUrl + ".png";
 

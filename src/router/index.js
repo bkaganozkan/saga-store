@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "../views/Layout.vue";
 import RiotGames from "@/components/LeagueOfLegends/RiotGames.vue";
+import Metin2 from "@/components/Metin2/Metin2.vue"
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/leagueoflegends",
     name: "leaugeoflegends",
     component: RiotGames,
+  },
+  {
+    path: "/metin2",
+    name: "metin2",
+    component: Metin2,
   },
 ];
  
