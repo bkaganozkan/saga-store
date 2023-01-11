@@ -11,7 +11,7 @@ export default {
 
 <style lang="scss" scoped>
 .background {
-  background: url(@/assets/images/lostark.jpg);
+  background: url(@/assets/images/lostarkintro.jpeg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

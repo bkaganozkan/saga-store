@@ -1,10 +1,22 @@
 <template>
   <v-row class="top-container">
     <v-col class="top-element" cols="6">
-      <img :src="require('@/assets/images/metin2Pvp.png')" alt="" />
+      <router-link to="/leagueoflegends">
+        <img
+          class="element-link"
+          :src="require('@/assets/images/metin2Pvp.png')"
+          alt=""
+        />
+      </router-link>
     </v-col>
     <v-col class="top-element" cols="6">
-      <img :src="require('@/assets/images/metin2Official.png')" alt="" />
+      <router-link to="/leagueoflegends">
+        <img
+          class="element-link"
+          :src="require('@/assets/images/metin2Official.png')"
+          alt=""
+        />
+      </router-link>
     </v-col>
   </v-row>
 </template>
@@ -30,6 +42,15 @@ export default {
     &:hover {
       background-color: rgba(0, 0, 0, 0.5);
       transition: 0.3s;
+    }
+
+    .element-link {
+      caret-color: transparent;
+
+      &:hover {
+        transform: scale(1.2);
+        transition: 0.4s;
+      }
     }
   }
 }
