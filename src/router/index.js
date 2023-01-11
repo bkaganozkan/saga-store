@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Layout from "../views/Layout.vue";
 import RiotGames from "@/components/LeagueOfLegends/RiotGames.vue";
 import Metin2 from "@/components/Metin2/Metin2.vue"
+import LostArk from "@/components/LostArk/LostArk.vue"
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,12 @@ const routes = [
     name: "metin2",
     component: Metin2,
   },
+  {
+    path: "/lostArk",
+    name: "lostArk",
+    component: LostArk,
+  },
+
 ];
  
 const router = new VueRouter({

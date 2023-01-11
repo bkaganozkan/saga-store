@@ -1,6 +1,5 @@
 <template>
-  <!-- <router-link class="content" to="/leagueoflegends"></router-link> -->
-  <div class="content background"></div>
+  <router-link class="content background" to="/lostArk"></router-link>
 </template>
 
 <script>
