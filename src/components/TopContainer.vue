@@ -19,4 +19,3 @@ export default {};
   justify-content: center;
 }
 </style>
-<!-- src\assets\images\ -->

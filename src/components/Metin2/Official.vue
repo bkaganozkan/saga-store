@@ -1,9 +1,57 @@
 <template>
-  <div style="color: white; position: relative;">Official</div>
+  <v-row class="pvp-container" justify="center" align="center">
+    <v-col cols="12 d-flex jc-c ai-c">
+      <h2>Metin2 Official Servers</h2>
+    </v-col>
+    <v-row class="server-container d-flex jc-c ai-c">
+      <ServerCard
+        v-for="(server, index) of officialServer.servers"
+        :key="index"
+        :serverInfo="server"
+      />
+    </v-row>
+  </v-row>
 </template>
 
 <script>
-export default {};
+import ServerCard from "./Components/ServerCard.vue";
+import { mapGetters } from "vuex";
+
+export default {
+  name: "Official",
+  components: {
+    ServerCard,
+  },
+  computed: {
+    ...mapGetters({
+      officialServer: "getOfficialServerData",
+    }),
+  },
+};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.pvp-container {
+  flex-wrap: wrap;
+  div > h2 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    color: whitesmoke;
+  }
+}
+.server-container {
+  max-width:70% !important;
+}
+.d-flex {
+  display: flex;
+}
+.jc-c {
+  justify-content: center;
+}
+.ai-c {
+  align-items: center;
+}
+</style>
+

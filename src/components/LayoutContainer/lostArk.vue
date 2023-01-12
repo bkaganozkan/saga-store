@@ -1,5 +1,7 @@
 <template>
-  <router-link class="content background" to="/lostArk"></router-link>
+  <div class="background">
+    <router-link class="content" to="/lostArk"></router-link>
+  </div>
 </template>
 
 <script>
@@ -20,5 +22,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background-color: rgba(82, 83, 54, 0.5) !important;
+    transition: 0.3s;
+  }
 }
 </style>

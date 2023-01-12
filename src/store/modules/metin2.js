@@ -60,11 +60,129 @@ const state = {
         },
       ],
     },
+
+    {
+      serverVersion: "Official",
+      servers: [
+        { serverName: "Ruby", serverLogo: "URL", amount: "1WON", price: "5€" },
+        {
+          serverName: "Polaris",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "9€",
+        },
+        {
+          serverName: "Polyphemos",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Tigerghost",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Espania",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Greek",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Italy",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Magyar",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Cesko",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Teutonia",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Germania",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Felis",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "5€",
+        },
+        {
+          serverName: "Azrael",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Arabic",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Carpat",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Europe",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Portugal",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Romania",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+        {
+          serverName: "Polska",
+          serverLogo: "URL",
+          amount: "1WON",
+          price: "1.5€",
+        },
+      ],
+    },
   ],
 };
 const getters = {
   getPvpServerData: (state) => {
     return state.serverData.filter((item) => item.serverVersion === "PVP")[0];
+  },
+  getOfficialServerData: (state) => {
+    return state.serverData.filter((item) => item.serverVersion === "Official")[0];
   },
 };
 const mutations = {};

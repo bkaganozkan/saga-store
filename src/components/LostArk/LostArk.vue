@@ -13,7 +13,7 @@
               <p class="content-left-text">LOST ARK EUC (ALL SERVER)</p>
               <p class="content-left-text">1000 Gold</p>
               <p class="content-left-icon">
-                <v-icon  large color="green darken-2"> mdi-check-circle </v-icon>
+                <v-icon large color="green darken-2"> mdi-check-circle </v-icon>
                 Available
               </p>
             </div>
@@ -27,7 +27,6 @@
               item-text="label"
               v-model="selectedServerLocation"
             ></v-select>
-
 
             <v-select
               color="#9C27B0"
@@ -68,7 +67,12 @@
             plain
             class="discord-btn"
           >
-            <v-img src="@/assets/images/discord.png" alt="Discord" height="100" width="100">
+            <v-img
+              src="@/assets/images/discord.png"
+              alt="Discord"
+              height="100"
+              width="100"
+            >
             </v-img>
           </v-btn>
         </div>
@@ -85,13 +89,13 @@ export default {
     selectedServer: null,
     quantity: null,
     totalAmount: 0.0,
-    selectedServerLocation : "all"
+    selectedServerLocation: "all",
   }),
   computed: {
     ...mapGetters(["getServerLocations"]),
-    getServerInfo(){
+    getServerInfo() {
       return this.$store.getters.getServerInfo(this.selectedServerLocation);
-    }
+    },
   },
   methods: {
     changedServer() {
@@ -106,19 +110,18 @@ export default {
     },
     calculateTotalAmount() {
       this.totalAmount = this.selectedServer.price * this.quantity;
-    }
+    },
   },
-  components : {
-    Header
-  }
+  components: {
+    Header,
+  },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
+$green-color: #388e3c;
 
-$green-color : #388E3C ;
-
-input{
+input {
   margin: 0 !important;
 }
 
@@ -128,7 +131,7 @@ input{
   padding: 0;
   margin: 0;
 
-  &-row{
+  &-row {
     height: 100%;
   }
 }
@@ -144,28 +147,28 @@ input{
   display: flex;
   align-items: center;
 
-  &-right{
-    p{
+  &-right {
+    p {
       display: flex;
       justify-content: end;
       align-items: center;
 
-      i{
+      i {
         margin-right: 1rem;
       }
     }
   }
 
-  &-left{
+  &-left {
     display: flex;
     align-items: center;
 
-    &-text{
+    &-text {
       margin: 0 !important;
       font-weight: 400;
     }
 
-    &-icon{
+    &-icon {
       margin-top: 3rem;
       color: $green-color;
       font-weight: bold;
@@ -185,12 +188,12 @@ input{
   height: 25%;
   justify-content: center;
 
-  & p{
+  & p {
     font-weight: 600;
     font-size: 1.2rem;
-  } 
+  }
 
-  & .discord-btn{
+  & .discord-btn {
     margin-top: 2rem;
   }
 

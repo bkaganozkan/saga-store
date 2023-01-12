@@ -3,7 +3,7 @@
     <v-row justify="end" align-content="start">
       <div>
         <v-col cols="4">
-          <v-div class="price-container">
+          <div class="price-container">
             <div class="recent-price-container">
               <span class="price"> {{ price }} </span>
               <span class="price currency"> €</span>
@@ -12,7 +12,7 @@
               <span class="price"> 40.94 </span>
               <span class="price currency"> €</span>
             </div>
-          </v-div>
+          </div>
         </v-col>
         <v-col cols="3">
           <v-btn
