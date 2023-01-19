@@ -1,83 +1,99 @@
 <template>
   <div class="main">
     <Header />
-    <v-row class="main-row">
-      <v-col cols="3" class="lostark-img">
-        <img src="@/assets/images/lostark.jpeg" alt="LostArk" />
-      </v-col>
+    <v-container class="main-container">
+      <v-row class="main-row">
+        <v-col cols="3" class="lostark-img">
+          <img src="@/assets/images/lostark.jpeg" alt="LostArk" />
+        </v-col>
 
-      <v-col class="content">
-        <v-row>
-          <v-col class="content-left">
-            <div>
-              <p class="content-left-text">LOST ARK EUC (ALL SERVER)</p>
-              <p class="content-left-text">1000 Gold</p>
-              <p class="content-left-icon">
-                <v-icon large color="green darken-2"> mdi-check-circle </v-icon>
-                Available
+        <v-col class="content">
+          <v-row>
+            <v-col class="content-left">
+              <div>
+                <p class="content-left-text">LOST ARK EUC (ALL SERVER)</p>
+                <p class="content-left-text">1000 Gold</p>
+                <p class="content-left-icon">
+                  <v-icon large color="green darken-2">
+                    mdi-check-circle
+                  </v-icon>
+                  Available
+                </p>
+              </div>
+            </v-col>
+            <v-col class="content-right">
+              <v-select
+                color="#9C27B0"
+                :items="getServerLocations"
+                label="Server Location"
+                outlined
+                item-text="label"
+                v-model="selectedServerLocation"
+              ></v-select>
+
+              <v-select
+                color="#9C27B0"
+                :items="getServerInfo"
+                label="Server Name"
+                return-object
+                outlined
+                item-text="name"
+                v-model="selectedServer"
+                @change="changedServer()"
+              ></v-select>
+
+              <v-text-field
+                class="quantity-input"
+                v-model="quantity"
+                color="#9C27B0"
+                label="Fiyat Adet"
+                outlined
+                @change="changedQuantity()"
+              ></v-text-field>
+              <p>
+                <v-icon large> mdi-information-outline </v-icon>
+                {{ totalAmount }} EUR
               </p>
-            </div>
-          </v-col>
-          <v-col class="content-right">
-            <v-select
-              color="#9C27B0"
-              :items="getServerLocations"
-              label="Server Location"
-              outlined
-              item-text="label"
-              v-model="selectedServerLocation"
-            ></v-select>
+            </v-col>
+          </v-row>
+        </v-col>
 
-            <v-select
-              color="#9C27B0"
-              :items="getServerInfo"
-              label="Server Name"
-              return-object
-              outlined
-              item-text="name"
-              v-model="selectedServer"
-              @change="changedServer()"
-            ></v-select>
-
-            <v-text-field
-              class="quantity-input"
-              v-model="quantity"
-              color="#9C27B0"
-              label="Fiyat Adet"
-              outlined
-              @change="changedQuantity()"
-            ></v-text-field>
-            <p>
-              <v-icon large> mdi-information-outline </v-icon>
-              {{ totalAmount }} EUR
+        <v-col cols="3">
+          <div class="left-area">
+            <h6 class="left-area-title">PLEASE READ THE WARNING!</h6>
+            <p class="left-area-content">
+              Delivery time of the order " 15 Minutes " Delivery information
+              after purchase My Orders from the relevant order page DETAIL You
+              can learn by clicking the button. After receiving your Game Money,
+              do not return it to anyone. In the game Anathema Yang He
+              definitely won't talk to you.. Get information by contacting live
+              support for any questions or problems that may arise during
+              delivery. LOSSES CAUSED BY THESE TYPE OF ERRORS Anathema Yang NOT
+              RESPONSIBLE.
             </p>
-          </v-col>
-        </v-row>
-      </v-col>
-
-      <v-col cols="3">
-        <div class="left-area"></div>
-        <div class="discord-area">
-          <p>BUY NOW Via Discord</p>
-          <v-btn
-            style="justify-self: end"
-            href="https://discord.gg/Q4BkmGME"
-            target="_blank"
-            depressed
-            plain
-            class="discord-btn"
-          >
-            <v-img
-              src="@/assets/images/discord.png"
-              alt="Discord"
-              height="100"
-              width="100"
+          </div>
+          <div class="discord-area">
+            <p>BUY NOW Via Discord</p>
+            <v-btn
+              style="justify-self: end"
+              href="https://discord.gg/Q4BkmGME"
+              target="_blank"
+              depressed
+              plain
+              class="discord-btn"
             >
-            </v-img>
-          </v-btn>
-        </div>
-      </v-col>
-    </v-row>
+              <v-img
+                src="@/assets/images/discord.png"
+                alt="Discord"
+                height="100"
+                width="100"
+              >
+              </v-img>
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -120,16 +136,27 @@ export default {
 
 <style lang="scss">
 $green-color: #388e3c;
+$left-area-bgColor : #ffe699;
+$left-area-textColor: #977e38;
+
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
 
 input {
   margin: 0 !important;
 }
 
 .main {
-  display: flex;
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
+
+  &-container{
+    margin-top: toRem(80);
+    height: calc(100% - toRem(80));
+  }
 
   &-row {
     height: 100%;
@@ -137,9 +164,9 @@ input {
 }
 
 .lostark-img {
-  height: 100%;
+
   & img {
-    height: 100vh;
+    height: 83%;
     width: 100%;
   }
 }
@@ -177,15 +204,26 @@ input {
   }
 }
 .left-area {
-  background: yellow;
-  height: 75%;
+  background: $left-area-bgColor;
+  height: 80%;
+  padding: 1rem;
+  color: $left-area-textColor;
+
+  &-title{
+    margin-bottom: 1rem;
+  }
+
+  &-content{
+    text-align: justify;
+    font-size: toRem(16);
+  }
 }
 
 .discord-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 25%;
+  height: 20%;
   justify-content: center;
 
   & p {
@@ -194,7 +232,7 @@ input {
   }
 
   & .discord-btn {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   & img {
