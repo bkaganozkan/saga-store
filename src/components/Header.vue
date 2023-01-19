@@ -50,8 +50,8 @@ export default {
   mounted() {
     this.currentPath = this.$route.fullPath;
 
-    var x = document.querySelectorAll(".scroll");
-    console.log(x);
+    // var x = document.querySelectorAll(".scroll");
+    // console.log(x);
   },
 };
 </script>

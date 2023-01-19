@@ -1,7 +1,7 @@
 <template>
   <v-col lg="3" md="4" sm="6" class="card-container">
     <v-card class="serverCard" max-width="15rem">
-      <v-img src="@/assets/images/rubnumpng.png"></v-img>
+      <v-img :src="serverInfo.serverLogo" max-height="200"></v-img>
       <div class="server-text">
         {{ serverInfo.serverName }} - {{ serverInfo.amount }}
       </div>
@@ -94,6 +94,7 @@ export default {
     .buy {
       border-radius: 0.25rem;
       width: 100%;
+      cursor: pointer;
     }
     .bg-yellow {
       background-color: #ffc107;
@@ -113,30 +114,6 @@ export default {
       scale: 1.1;
       transition: 0.5s;
     }
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   min-width: 1.7rem;
-    //   padding: 0.25rem;
-
-    //   &:hover {
-    //     scale: 1.2;
-    //     transition: 0.5s;
-    //   }
-    //   .buy {
-    //     text-align: center;
-    //     padding: 0.25rem;
-    //     background-color: #ffc107;
-    //     min-width: 80%;
-    //     border-radius: 0.25rem !important;
-
-    //     span {
-    //       font-size: 1.25rem;
-    //       margin: 0.25rem;
-    //       font-weight: 400;
-
-    //     }
-    //   }
   }
 }
 .d-flex-centered {
