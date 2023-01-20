@@ -24,7 +24,7 @@
       <Server :option="option" v-if="option.title === 'Server'" />
     </v-col>
     <PriceAndComments
-      :price="calculatePrice(boostType.price, currentTotalRate)"
+      :price="calculatePrice(desireRate, currentRate, boostType.tabName)"
     />
   </v-row>
 </template>

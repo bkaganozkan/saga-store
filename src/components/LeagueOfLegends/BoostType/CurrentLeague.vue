@@ -55,7 +55,11 @@ export default {
       selectedOptionImgUrl: null,
     };
   },
-
+  watch: {
+    option(newVal, oldVal) {
+      this.changeData();
+    },
+  },
   methods: {
     changeCurrent() {
       if (this.league && this.division) {
@@ -64,19 +68,24 @@ export default {
         this.$emit("sendCurrent", this.league.rate + this.division.rate);
       }
     },
-  },
 
-  mounted() {
-    this.league = this.option.leagueOptions[1];
-    this.division = this.option.divisionOptions[0];
-    this.selectedOptionImgUrl =
-      this.league.imgUrl + this.division.imgUrl + ".png";
-
-    if (this.league && this.division) {
+    changeData() {
+      this.league = this.option.leagueOptions[1];
+      this.division = this.option.divisionOptions[0];
       this.selectedOptionImgUrl =
         this.league.imgUrl + this.division.imgUrl + ".png";
-      this.$emit("sendCurrent", this.league.rate + this.division.rate);
-    }
+
+      if (this.league && this.division) {
+        this.selectedOptionImgUrl =
+          this.league.imgUrl + this.division.imgUrl + ".png";
+        this.$emit("sendCurrent", this.league.rate + this.division.rate);
+        console.log(this.league.rate * this.division.rate * 5);
+        // console.log(this.league.rate, this.division.rate);
+      }
+    },
+  },
+  mounted() {
+    this.changeData();
   },
 };
 </script>

@@ -6,7 +6,7 @@ const state = {
       icon: require("@/assets/svgs/lol-50.svg"),
       tabName: "tab-lol",
       imgBasePath: "LoL",
-      price: 20,
+      price: 5,
       boostType: [
         {
           name: "Solo",
@@ -21,37 +21,38 @@ const state = {
           title: "Current League",
           leagueOptions: [
             { title: "Bronze", imgUrl: "bronze", rate: 1 },
-            { title: "Silver", imgUrl: "silver", rate: 3 },
-            { title: "Gold", imgUrl: "gold", rate: 5 },
-            { title: "Platinum", imgUrl: "platinum", rate: 7 },
-            { title: "Diamond", imgUrl: "diamond", rate: 9 },
-            { title: "Master", imgUrl: "master", rate: 11 },
-            { title: "Challanger", imgUrl: "challanger", rate: 13 },
+            { title: "Silver", imgUrl: "silver", rate: 1 },
+            { title: "Gold", imgUrl: "gold", rate: 2 },
+            { title: "Platinum", imgUrl: "platinum", rate: 20 },
+            { title: "Diamond", imgUrl: "diamond", rate: 40 },
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 0.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 1.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 2.75 },
-            { title: "Division 4", imgUrl: "-4", rate: 3.75 },
+            { title: "Division 1", imgUrl: "-1", rate: 4 },
+            { title: "Division 2", imgUrl: "-2", rate: 3 },
+            { title: "Division 3", imgUrl: "-3", rate: 2 },
+            { title: "Division 4", imgUrl: "-4", rate: 1 },
           ],
           pointOptions: ["0-20", "20-40", "40-60", "60-80", "80-100"],
         },
         {
           title: "Desire League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 2 },
-            { title: "Silver", imgUrl: "silver", rate: 4 },
-            { title: "Gold", imgUrl: "gold", rate: 6 },
-            { title: "Platinum", imgUrl: "platinum", rate: 10 },
-            { title: "Diamond", imgUrl: "diamond", rate: 12 },
-            { title: "Master", imgUrl: "master", rate: 14 },
-            { title: "Challanger", imgUrl: "challanger", rate: 16 },
+            { title: "Bronze", imgUrl: "bronze", rate: 1 },
+            { title: "Silver", imgUrl: "silver", rate: 1 },
+            { title: "Gold", imgUrl: "gold", rate: 2 },
+            { title: "Platinum", imgUrl: "platinum", rate: 13 },
+            { title: "Diamond", imgUrl: "diamond", rate: 40 },
+            {
+              title: "Master",
+              imgUrl: "master",
+              rate: 57,
+            },
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 1.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 2.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 3.75 },
-            { title: "Division 4", imgUrl: "-4", rate: 4.75 },
+            { title: "Division 1", imgUrl: "-1", rate: 3 },
+            { title: "Division 2", imgUrl: "-2", rate: 2 },
+            { title: "Division 3", imgUrl: "-3", rate: 1.5 },
+            { title: "Division 4", imgUrl: "-4", rate: 1 },
           ],
         },
         {
@@ -187,8 +188,17 @@ const getters = {
     return val;
   },
 
-  calculatePrice: () => (price, rate) => {
-    return price * rate;
+  calculatePrice: (state) => (desirePrice, currentPrice, boostCategory) => {
+    let { price } = state.boostCategory.find(
+      (val) => val.tabName === boostCategory
+    );
+    let total = (desirePrice * 2 - currentPrice) * price;
+    console.log(desirePrice, "desire");
+    console.log(currentPrice, "current");
+    console.log(price, "price");
+    console.log("minus", desirePrice - currentPrice);
+    console.log("total", (desirePrice - currentPrice) * price);
+    return total;
   },
 };
 const mutations = {};

@@ -63,6 +63,7 @@ export default {
       tab: "tab-lol",
     };
   },
+
   computed: {
     ...mapGetters({
       boostCategory: "getBoostCategory",

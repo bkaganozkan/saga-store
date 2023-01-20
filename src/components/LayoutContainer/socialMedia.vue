@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <router-link to="/insbot" class="content"></router-link>
+    <router-link to="/socialmedia" class="content"></router-link>
   </div>
 </template>
 
@@ -11,12 +11,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .background {
-  background: url(@/assets/images/testsocialintro.png);
+  background: url(@/assets/images/social-media-temp.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-
 }
 .content {
   height: 100vh;

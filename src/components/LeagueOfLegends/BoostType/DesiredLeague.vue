@@ -12,6 +12,7 @@
         @change="changeCurrent()"
       ></v-select>
       <v-select
+        v-if="league && league.title !== 'Master'"
         full-width
         color="#9C27B0"
         :items="option.divisionOptions"
@@ -46,6 +47,11 @@ export default {
       selectedOptionImgUrl: null,
     };
   },
+  watch: {
+    option(newVal, oldVal) {
+      this.changeData();
+    },
+  },
 
   methods: {
     changeCurrent() {
@@ -55,17 +61,22 @@ export default {
         this.$emit("sendDesire", this.league.rate + this.division.rate);
       }
     },
-  },
-  mounted() {
-    this.league = this.option.leagueOptions[2];
-    this.division = this.option.divisionOptions[0];
-    this.selectedOptionImgUrl =
-      this.league.imgUrl + this.division.imgUrl + ".png";
-    if (this.league && this.division) {
+    changeData() {
+      this.league = this.option.leagueOptions[2];
+      this.division = this.option.divisionOptions[0];
       this.selectedOptionImgUrl =
         this.league.imgUrl + this.division.imgUrl + ".png";
-      this.$emit("sendDesire", this.league.rate + this.division.rate);
-    }
+
+      if (this.league && this.division) {
+        this.selectedOptionImgUrl =
+          this.league.imgUrl + this.division.imgUrl + ".png";
+        this.$emit("sendDesire", this.league.rate + this.division.rate);
+      }
+    },
+  },
+  mounted() {
+    this.changeData();
+    console.log(this.league);
   },
 };
 </script>

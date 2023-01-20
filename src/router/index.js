@@ -2,8 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "../views/Layout.vue";
 import RiotGames from "@/components/LeagueOfLegends/RiotGames.vue";
-import Metin2 from "@/components/Metin2/Metin2.vue"
-import LostArk from "@/components/LostArk/LostArk.vue"
+import Metin2 from "@/components/Metin2/Metin2.vue";
+import LostArk from "@/components/LostArk/LostArk.vue";
+import SocialMedia from "@/components/SocialMedia/SocialMedia.vue";
 
 Vue.use(VueRouter);
 
@@ -28,9 +29,13 @@ const routes = [
     name: "lostArk",
     component: LostArk,
   },
-
+  {
+    path: "/socialmedia",
+    name: "SocialMedia",
+    component: SocialMedia,
+  },
 ];
- 
+
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,

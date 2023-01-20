@@ -1,43 +1,27 @@
 <template>
-  <header>
-    <!--Navigation-->
-    <nav
-      class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line"
-    >
-      <div class="container">
-        <a href="#home" title="Logo" class="logo scroll">
-          <!--Logo Default-->
-          <img
-            src="@/assets/images/sagaIcon.png"
-            alt="logo"
-            width="125px"
-            class="logo-dark"
-          />
-        </a>
-        <!--Nav Links-->
-        <div class="collapse navbar-collapse" id="megaone">
-          <div
-            class="navbar-nav ml-auto"
-            :class="currentPath == '/metin2' ? 'color' : ''"
-          >
-            <router-link class="nav-link scroll" to="/"> Home </router-link>
-            <router-link class="nav-link scroll" to="/metin2">
-              Metin 2</router-link
-            >
-            <router-link class="nav-link scroll" to="/leagueoflegends">
-              Riot Games</router-link
-            >
-            <router-link class="nav-link scroll" to="/lostark">
-              Lost Ark</router-link
-            >
-            <router-link class="nav-link scroll" to="/insbot">
-              Social Media</router-link
-            >
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <v-app-bar fixed elevate-on-scroll dark elevation="2" height="90" c>
+    <v-app-bar-title>
+      <v-img src="@/assets/images/sagaIcon.png" width="75" height="125"></v-img>
+    </v-app-bar-title>
+    <v-spacer></v-spacer>
+    <v-row justify="end">
+      <v-col cols="2" class="link-container">
+        <router-link to="/">Home</router-link>
+      </v-col>
+      <v-col cols="2" class="link-container">
+        <router-link to="/leagueoflegends">Riot Games</router-link>
+      </v-col>
+      <v-col cols="2" class="link-container">
+        <router-link to="/metin2">Metin 2</router-link>
+      </v-col>
+      <v-col cols="2" class="link-container">
+        <router-link to="/lostark">Lost Ark</router-link>
+      </v-col>
+      <v-col cols="2" class="link-container">
+        <router-link to="/socialmedia">Social Media</router-link>
+      </v-col>
+    </v-row>
+  </v-app-bar>
 </template>
 
 <script>
@@ -57,7 +41,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.link-container {
+  padding: 2rem 0.25rem;
+  a {
+    color: white;
+  }
+}
 .color {
   color: white !important;
+}
+.v-toolbar__content {
+  padding: 0px !important;
 }
 </style>

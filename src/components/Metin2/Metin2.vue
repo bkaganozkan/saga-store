@@ -7,6 +7,7 @@
       <PVP class="mt-2" />
       <Official class="mt-2" />
     </div>
+    <WhatsappButoon />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Header from "@/components/Header.vue";
 import PVP from "./PVP.vue";
 import Official from "./Official.vue";
 import Contact from "./Contact.vue";
+import WhatsappButoon from "@/components/Shared/WhatsappButton.vue";
 export default {
   name: "Metin2",
   components: {
@@ -24,6 +26,7 @@ export default {
     PVP,
     Official,
     Contact,
+    WhatsappButoon,
   },
 };
 </script>
@@ -35,7 +38,7 @@ export default {
   overflow: hidden;
   padding: 2rem 0rem;
 }
-.mt-2{
+.mt-2 {
   margin-top: 2rem !important;
 }
 </style>
