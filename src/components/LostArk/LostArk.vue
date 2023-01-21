@@ -118,7 +118,6 @@ export default {
       if (this.quantity == null) {
         this.quantity = 1;
       }
-
       this.calculateTotalAmount();
     },
     changedQuantity() {
@@ -164,7 +163,6 @@ input {
 }
 
 .lostark-img {
-
   & img {
     height: 83%;
     width: 100%;
