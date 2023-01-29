@@ -1,7 +1,7 @@
 <template>
   <v-row class="top-container">
     <v-col class="top-element" cols="6">
-      <router-link to="/leagueoflegends">
+      <router-link to="#pvp">
         <img
           class="element-link"
           :src="require('@/assets/images/metin2Pvp.png')"
@@ -10,7 +10,7 @@
       </router-link>
     </v-col>
     <v-col class="top-element" cols="6">
-      <router-link to="/leagueoflegends">
+      <router-link to="#official">
         <img
           class="element-link"
           :src="require('@/assets/images/metin2Official.png')"

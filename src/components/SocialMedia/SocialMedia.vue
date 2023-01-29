@@ -1,19 +1,12 @@
 <template>
   <v-main>
     <Header />
-    <v-container class="background" fluid>
-      <v-row class="main-container">
-        <v-col cols="3">
-          <v-img src="@/assets/images/social-media.jpg"></v-img>
-        </v-col>
-        <v-col cols="6" class="info-container">
-          <SocialInfo />
-        </v-col>
+    <div class="main-container">
+      <v-row class="card-container">
+        <v-col cols="4" class="pa-0 left-container"> </v-col>
+        <SocialInfo />
       </v-row>
-    </v-container>
-    <!--Start of Tawk.to Script-->
-
-    <!--End of Tawk.to Script-->
+    </div>
   </v-main>
 </template>
 
@@ -33,13 +26,33 @@ export default {
   background: rgba($color: #72eff8, $alpha: 0.2);
 }
 .main-container {
-  margin: 5rem 3em;
-  padding-top: 4rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  background: rgba(#1e1e1e, 1);
+  height: 100vh;
 
-  .info-container {
-    // width: 500px;
-    height: 100vh;
-    // background-color: rgba($color: #000000, $alpha: 0.3);
+  .card-container {
+    position: absolute;
+    width: 70vw;
+    height: calc(100vh - 190px);
+    // top: 135px;
+    // left: 382px;
+    border-radius: 41px;
+    background: rgba($color: #f8f8f8, $alpha: 1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.3);
   }
+}
+.left-container {
+  background: url(@/assets/images/social-media.jpg);
+  border-radius: 41px 0px 0px 41px;
+  width: 325px;
+  height: 100%;
+  background-repeat: no-repeat;
+  filter: blur(2px);
 }
 </style>

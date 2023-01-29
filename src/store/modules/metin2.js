@@ -4,12 +4,6 @@ const state = {
       serverVersion: "PVP",
       servers: [
         {
-          serverName: "Aoki",
-          serverLogo: require("@/assets/images/pvp_fiat/aoki2.png"),
-          amount: "50KKK",
-          price: "10€",
-        },
-        {
           serverName: "Aeldra",
           serverLogo: require("@/assets/images/pvp_fiat/aldre.png"),
           amount: "45KKK",
@@ -27,10 +21,17 @@ const state = {
           amount: "10KK",
           price: "10€",
         },
+
         {
           serverName: "Sancy",
           serverLogo: require("@/assets/images/pvp_fiat/sancy.png"),
           amount: "2KKK",
+          price: "10€",
+        },
+        {
+          serverName: "Aoki",
+          serverLogo: require("@/assets/images/pvp_fiat/aoki2.png"),
+          amount: "50KKK",
           price: "10€",
         },
         {

@@ -1,6 +1,6 @@
 <template>
   <v-row class="pvp-container" justify="center" align="center">
-    <v-col cols="12 d-flex jc-c ai-c">
+    <v-col cols="12 d-flex jc-c ai-c" class="my-12 pa-4">
       <h2>Metin2 PVP Servers</h2>
     </v-col>
     <v-row class="server-container d-flex jc-c ai-c">
@@ -42,7 +42,7 @@ export default {
   }
 }
 .server-container {
-  max-width:70% !important;
+  max-width: 70% !important;
 }
 .d-flex {
   display: flex;

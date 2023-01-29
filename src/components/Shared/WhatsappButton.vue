@@ -1,12 +1,11 @@
 <template>
   <div class="whatsapp-container">
-    <button dense outlined>
-      <v-img
-        class="wp-btn"
+    <a href="https://wa.me/message/SABKVVNNR7OWL1">
+      <img
+        class="wp-btn-img"
         src="https://sageyangstore.com/static/media/whatsapp.c5d707ee9af93653d2a1.jpg"
         width="150"
-      ></v-img>
-    </button>
+    /></a>
   </div>
 </template>
 
@@ -20,11 +19,15 @@ export default {};
   bottom: 0;
   left: 0;
   padding: 1.25rem 0.5rem;
-  border-radius: 0 20px 0 !important;
-
-  overflow: hidden;
+  border-radius: 25px;
 
   .wp-btn-img {
+    border-radius: 25px 0 35px 0;
+    cursor: pointer;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
   }
 }
 </style>

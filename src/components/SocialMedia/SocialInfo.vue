@@ -1,52 +1,68 @@
-<template class="background">
-  <v-row>
-    <v-col cols="12">
-      <v-select
-        :items="platforms"
-        v-model="selectedPlatform"
-        label="Platform"
-      ></v-select>
-    </v-col>
-    <template v-if="selectedPlatform">
-      <v-row style="padding: 1rem">
-        <v-col cols="12">
-          <v-select
-            label="Methods"
-            :items="socialOption(selectedPlatform).methods"
-            return-object
-            item-text="title"
-            v-model="method"
-            color="#FF7F50"
-          ></v-select>
-        </v-col>
-        <v-col cols="12">
-          <v-text-field label="Amount" v-model="amount"></v-text-field>
-        </v-col>
-        <v-col cols="12">
-          <v-text-field label="Link" v-model="link"></v-text-field>
-        </v-col>
-        <v-col cols="12" v-if="method && method.title === '10 Comments'">
-          <v-textarea placeholder="Write Comments You Want"></v-textarea>
-        </v-col>
+<template>
+  <v-col cols="7" class="info-container">
+    <v-row justify="center" style="height: 100%" class="d-flex align-center">
+      <v-col cols="7">
+        <label class="label-text" for="platform">Platform</label>
+        <v-select
+          style="brder-radius: 8px"
+          outlined
+          placeholder="Platform"
+          :items="platforms"
+          v-model="selectedPlatform"
+        ></v-select>
+        <label class="label-text" for="methods">Methods</label>
+        <v-select
+          style="brder-radius: 8px"
+          outlined
+          placeholder="Methods"
+          return-object
+          item-text="title"
+          v-model="method"
+          :items="
+            selectedPlatform ? socialOption(selectedPlatform).methods : []
+          "
+        ></v-select>
+        <label class="label-text" for="amount">Amount</label>
+        <v-text-field
+          style="boder-radius: 8px"
+          outlined
+          placeholder="Amount"
+          v-model="totalAmount"
+        ></v-text-field>
+        <label class="label-text" for="link">Link</label>
+        <v-text-field
+          style="boder-radius: 8px"
+          outlined
+          placeholder="Link"
+        ></v-text-field>
+        <template v-if="method && method.comment">
+          <label class="label-text" for="link"
+            >Comments (A Comment for each line)</label
+          >
+          <v-textarea
+            style="boder-radius: 8px"
+            outlined
+            dense
+            no-resize
+            placeholder="Comments"
+          ></v-textarea>
+        </template>
+        <v-row justify="space-between" class="px-3">
+          <span class="price-text"
+            >Price
+            {{
+              method && method.price
+                ? getTotalPrice(method.price, totalAmount)
+                : 0
+            }}
+            €
+          </span>
 
-        <v-col cols="12">
-          <v-row justify="end" class="mb-2">
-            <h4>
-              <span class="mr-2">Price</span>
-              <span v-if="method">
-                {{ getTotalPrice(method.price, amount) }} €</span
-              >
-            </h4>
-          </v-row>
-        </v-col>
-        <v-col cols="12">
-          <v-row justify="end">
-            <v-btn color="primary" href="/purchase">Purchase</v-btn>
-          </v-row>
-        </v-col>
-      </v-row>
-    </template>
-  </v-row>
+          <v-btn dark color="#3155A3">Purchase</v-btn>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-col>
 </template>
 
 <script>
@@ -57,9 +73,15 @@ export default {
     return {
       selectedPlatform: null,
       method: null,
-      amount: 1,
+      totalAmount: 1,
       link: "",
     };
+  },
+
+  watch: {
+    selectedPlatform() {
+      this.method = null;
+    },
   },
 
   computed: {
@@ -72,4 +94,30 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.info-container {
+  background: #f8f8f8;
+  width: 100% !important;
+  border-radius: 41px;
+}
+.v-input__slot {
+  border-radius: 38px !important;
+}
+.label-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.36px;
+  color: #5e5e5e;
+}
+
+.price-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #2b2b2b;
+}
+</style>

@@ -20,39 +20,140 @@ const state = {
         {
           title: "Current League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 1 },
-            { title: "Silver", imgUrl: "silver", rate: 1 },
-            { title: "Gold", imgUrl: "gold", rate: 2 },
-            { title: "Platinum", imgUrl: "platinum", rate: 20 },
-            { title: "Diamond", imgUrl: "diamond", rate: 40 },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 4 },
-            { title: "Division 2", imgUrl: "-2", rate: 3 },
-            { title: "Division 3", imgUrl: "-3", rate: 2 },
-            { title: "Division 4", imgUrl: "-4", rate: 1 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "iron-4", price: 5 },
+                { title: "Division 3 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 1 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "bronze-4", price: 35 },
+                { title: "Division 3 ", imgUrl: "bronze-3", price: 40 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 45 },
+                { title: "Division 1 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "silver-4", price: 55 },
+                { title: "Division 3 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 65 },
+                { title: "Division 1 ", imgUrl: "silver-1", price: 70 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "gold-4", price: 85 },
+                { title: "Division 3 ", imgUrl: "gold-3", price: 100 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 115 },
+                { title: "Division 1 ", imgUrl: "gold-1", price: 125 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "platinum-4", price: 150 },
+                { title: "Division 3 ", imgUrl: "platinum-3", price: 175 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 200 },
+                { title: "Division 1 ", imgUrl: "platinum-1", price: 225 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "diamond-4", price: 300 },
+                { title: "Division 3 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 1 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
           ],
           pointOptions: ["0-20", "20-40", "40-60", "60-80", "80-100"],
         },
         {
           title: "Desire League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 1 },
-            { title: "Silver", imgUrl: "silver", rate: 1 },
-            { title: "Gold", imgUrl: "gold", rate: 2 },
-            { title: "Platinum", imgUrl: "platinum", rate: 13 },
-            { title: "Diamond", imgUrl: "diamond", rate: 40 },
-            {
-              title: "Master",
-              imgUrl: "master",
-              rate: 57,
-            },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 3 },
-            { title: "Division 2", imgUrl: "-2", rate: 2 },
-            { title: "Division 3", imgUrl: "-3", rate: 1.5 },
-            { title: "Division 4", imgUrl: "-4", rate: 1 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "iron-4", price: 5 },
+                { title: "Division 3 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 1 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "bronze-4", price: 35 },
+                { title: "Division 3 ", imgUrl: "bronze-3", price: 40 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 45 },
+                { title: "Division 1 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "silver-4", price: 55 },
+                { title: "Division 3 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 65 },
+                { title: "Division 1 ", imgUrl: "silver-1", price: 70 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "gold-4", price: 85 },
+                { title: "Division 3 ", imgUrl: "gold-3", price: 100 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 115 },
+                { title: "Division 1 ", imgUrl: "gold-1", price: 125 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "platinum-4", price: 150 },
+                { title: "Division 3 ", imgUrl: "platinum-3", price: 175 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 200 },
+                { title: "Division 1 ", imgUrl: "platinum-1", price: 225 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "diamond-4", price: 300 },
+                { title: "Division 3 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 1 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
+            {
+              league: "Master",
+              price: 650,
+            },
           ],
         },
         {
@@ -77,38 +178,140 @@ const state = {
         {
           title: "Current League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 1 },
-            { title: "Silver", imgUrl: "silver", rate: 3 },
-            { title: "Gold", imgUrl: "gold", rate: 5 },
-            { title: "Platinum", imgUrl: "platinum", rate: 7 },
-            { title: "Diamond", imgUrl: "diamond", rate: 9 },
-            { title: "Master", imgUrl: "master", rate: 11 },
-            { title: "Challanger", imgUrl: "challanger", rate: 13 },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 0.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 1.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 2.75 },
-            { title: "Division 4", imgUrl: "-4", rate: 3.75 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "iron-4", price: 5 },
+                { title: "Division 3 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 1 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "bronze-4", price: 35 },
+                { title: "Division 3 ", imgUrl: "bronze-3", price: 40 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 45 },
+                { title: "Division 1 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "silver-4", price: 55 },
+                { title: "Division 3 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 65 },
+                { title: "Division 1 ", imgUrl: "silver-1", price: 70 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "gold-4", price: 85 },
+                { title: "Division 3 ", imgUrl: "gold-3", price: 100 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 115 },
+                { title: "Division 1 ", imgUrl: "gold-1", price: 125 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "platinum-4", price: 150 },
+                { title: "Division 3 ", imgUrl: "platinum-3", price: 175 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 200 },
+                { title: "Division 1 ", imgUrl: "platinum-1", price: 225 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "diamond-4", price: 300 },
+                { title: "Division 3 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 1 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
           ],
           pointOptions: ["0-20", "20-40", "40-60", "60-80", "80-100"],
         },
         {
           title: "Desire League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 2 },
-            { title: "Silver", imgUrl: "silver", rate: 4 },
-            { title: "Gold", imgUrl: "gold", rate: 6 },
-            { title: "Platinum", imgUrl: "platinum", rate: 10 },
-            { title: "Diamond", imgUrl: "diamond", rate: 12 },
-            { title: "Master", imgUrl: "master", rate: 14 },
-            { title: "Challanger", imgUrl: "challanger", rate: 16 },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 1.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 2.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 3.75 },
-            { title: "Division 4", imgUrl: "-4", rate: 4.75 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "iron-4", price: 5 },
+                { title: "Division 3 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 1 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "bronze-4", price: 35 },
+                { title: "Division 3 ", imgUrl: "bronze-3", price: 40 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 45 },
+                { title: "Division 1 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "silver-4", price: 55 },
+                { title: "Division 3 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 65 },
+                { title: "Division 1 ", imgUrl: "silver-1", price: 70 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "gold-4", price: 85 },
+                { title: "Division 3 ", imgUrl: "gold-3", price: 100 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 115 },
+                { title: "Division 1 ", imgUrl: "gold-1", price: 125 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "platinum-4", price: 150 },
+                { title: "Division 3 ", imgUrl: "platinum-3", price: 175 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 200 },
+                { title: "Division 1 ", imgUrl: "platinum-1", price: 225 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 4 ", imgUrl: "diamond-4", price: 300 },
+                { title: "Division 3 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 1 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
+            {
+              league: "Master",
+              price: 650,
+            },
           ],
         },
         {
@@ -133,36 +336,124 @@ const state = {
         {
           title: "Current League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 1 },
-            { title: "Silver", imgUrl: "silver", rate: 3 },
-            { title: "Gold", imgUrl: "gold", rate: 5 },
-            { title: "Platinum", imgUrl: "platinum", rate: 7 },
-            { title: "Diamond", imgUrl: "diamond", rate: 9 },
-            { title: "Ascendat", imgUrl: "ascendat", rate: 11 },
-            { title: "Immortal", imgUrl: "immortal", rate: 13 },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 0.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 1.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 2.75 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 3 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "bronze-3", price: 33 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 41 },
+                { title: "Division 3 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 70 },
+                { title: "Division 3 ", imgUrl: "silver-1", price: 83 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "gold-3", price: 93 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 106 },
+                { title: "Division 3 ", imgUrl: "gold-1", price: 119 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "platinum-3", price: 137 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 155 },
+                { title: "Division 3 ", imgUrl: "platinum-1", price: 150 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 3 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
           ],
           pointOptions: ["0-20", "20-40", "40-60", "60-80", "80-100"],
         },
         {
           title: "Desire League",
           leagueOptions: [
-            { title: "Bronze", imgUrl: "bronze", rate: 2 },
-            { title: "Silver", imgUrl: "silver", rate: 4 },
-            { title: "Gold", imgUrl: "gold", rate: 6 },
-            { title: "Platinum", imgUrl: "platinum", rate: 10 },
-            { title: "Diamond", imgUrl: "diamond", rate: 12 },
-            { title: "Ascendat", imgUrl: "ascendat", rate: 14 },
-            { title: "Immortal", imgUrl: "immortal", rate: 16 },
+            "Iron",
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
           ],
           divisionOptions: [
-            { title: "Division 1", imgUrl: "-1", rate: 1.75 },
-            { title: "Division 2", imgUrl: "-2", rate: 2.75 },
-            { title: "Division 3", imgUrl: "-3", rate: 3.75 },
+            {
+              league: "Iron",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "iron-3", price: 10 },
+                { title: "Division 2 ", imgUrl: "iron-2", price: 15 },
+                { title: "Division 3 ", imgUrl: "iron-1", price: 25 },
+              ],
+            },
+            {
+              league: "Bronze",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "bronze-3", price: 40 },
+                { title: "Division 2 ", imgUrl: "bronze-2", price: 45 },
+                { title: "Division 3 ", imgUrl: "bronze-1", price: 50 },
+              ],
+            },
+            {
+              league: "Silver",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "silver-3", price: 60 },
+                { title: "Division 2 ", imgUrl: "silver-2", price: 65 },
+                { title: "Division 3 ", imgUrl: "silver-1", price: 70 },
+              ],
+            },
+            {
+              league: "Gold",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "gold-3", price: 100 },
+                { title: "Division 2 ", imgUrl: "gold-2", price: 115 },
+                { title: "Division 3 ", imgUrl: "gold-1", price: 125 },
+              ],
+            },
+            {
+              league: "Platinum",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "platinum-3", price: 175 },
+                { title: "Division 2 ", imgUrl: "platinum-2", price: 200 },
+                { title: "Division 3 ", imgUrl: "platinum-1", price: 225 },
+              ],
+            },
+            {
+              league: "Diamond",
+              divisions: [
+                { title: "Division 1 ", imgUrl: "diamond-3", price: 375 },
+                { title: "Division 2 ", imgUrl: "diamond-2", price: 450 },
+                { title: "Division 3 ", imgUrl: "diamond-1", price: 525 },
+              ],
+            },
           ],
         },
         {
@@ -192,12 +483,8 @@ const getters = {
     let { price } = state.boostCategory.find(
       (val) => val.tabName === boostCategory
     );
-    let total = (desirePrice * 2 - currentPrice) * price;
-    console.log(desirePrice, "desire");
-    console.log(currentPrice, "current");
-    console.log(price, "price");
-    console.log("minus", desirePrice - currentPrice);
-    console.log("total", (desirePrice - currentPrice) * price);
+    let total = desirePrice - currentPrice;
+
     return total;
   },
 };

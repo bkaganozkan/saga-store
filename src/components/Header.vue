@@ -45,7 +45,19 @@ export default {
   padding: 2rem 0.25rem;
   a {
     color: white;
+    font-weight: 500;
+
+    &:hover {
+      scale: 1.2;
+      transition: 0.3;
+      background: rgba($color: #fff, $alpha: 1);
+      color: #000000;
+      border-radius: 5px;
+      text-align: center;
+    }
   }
+  display: flex;
+  justify-content: center;
 }
 .color {
   color: white !important;

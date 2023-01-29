@@ -1,6 +1,6 @@
 <template>
-  <div class="leaguecontainer">
-    <div class="league-options">
+  <v-row class="current-league-container">
+    <v-col cols="6" class="league-options">
       <v-select
         full-width
         color="#9C27B0"
@@ -9,31 +9,31 @@
         return-object
         v-model="league"
         item-text="title"
-        @change="changeCurrent()"
       ></v-select>
       <v-select
-        v-if="league && league.title !== 'Master'"
+        :disabled="!league ? true : false"
         full-width
         color="#9C27B0"
-        :items="option.divisionOptions"
-        label="Division"
+        :items="getDivision"
+        label="League"
         return-object
         v-model="division"
-        @change="changeCurrent()"
         item-text="title"
+        @change="sendDesirePrice()"
       ></v-select>
-    </div>
-    <div class="league-img" v-if="selectedOptionImgUrl">
+    </v-col>
+    <v-col cols="5">
       <img
         class="league"
-        :src="require(`@/assets/images/${imgBasePath}/${selectedOptionImgUrl}`)"
+        :src="require(`@/assets/images/${imgBasePath}/${division.imgUrl}.png`)"
         alt=""
       />
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "CurrentLeague",
   props: {
@@ -44,39 +44,40 @@ export default {
     return {
       league: null,
       division: null,
-      selectedOptionImgUrl: null,
+      selectedOption: null,
     };
   },
   watch: {
     option(newVal, oldVal) {
-      this.changeData();
+      this.changeDivisionOption();
+    },
+    league(newVal) {
+      this.changeDivisionOption();
     },
   },
-
   methods: {
-    changeCurrent() {
-      if (this.league && this.division) {
-        this.selectedOptionImgUrl =
-          this.league.imgUrl + this.division.imgUrl + ".png";
-        this.$emit("sendDesire", this.league.rate + this.division.rate);
-      }
+    findDivision(league) {
+      return this.option.divisionOptions.find((el) => el.league == league)
+        .divisions;
     },
-    changeData() {
-      this.league = this.option.leagueOptions[2];
-      this.division = this.option.divisionOptions[0];
-      this.selectedOptionImgUrl =
-        this.league.imgUrl + this.division.imgUrl + ".png";
-
-      if (this.league && this.division) {
-        this.selectedOptionImgUrl =
-          this.league.imgUrl + this.division.imgUrl + ".png";
-        this.$emit("sendDesire", this.league.rate + this.division.rate);
-      }
+    sendDesirePrice() {
+      this.$emit("sendDesire", this.division.price);
+    },
+    changeDivisionOption() {
+      this.division = this.findDivision(this.league)[0];
+      this.sendDesirePrice();
     },
   },
-  mounted() {
-    this.changeData();
-    console.log(this.league);
+  mounted() {},
+  created() {
+    this.league = "Silver";
+    this.division = this.findDivision(this.league)[0];
+  },
+  computed: {
+    ...mapGetters({}),
+    getDivision() {
+      return !this.league ? [] : this.findDivision(this.league);
+    },
   },
 };
 </script>

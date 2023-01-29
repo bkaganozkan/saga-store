@@ -1,5 +1,5 @@
 <template>
-  <v-row style="color: white" class="contact-container">
+  <v-row style="color: white" class="contact-container mt-16"">
     <v-col cols="4" style="display: flex; justify-content: center">
       <div style="justify-self: center" class="col-text">
         <span>
@@ -67,6 +67,8 @@ export default {};
 <style lang="scss" scoped>
 .contact-container {
   padding: 1rem;
+  background: #2c2939;
+  height:10vh;
 }
 .col-text {
   color: #f8f9fa;

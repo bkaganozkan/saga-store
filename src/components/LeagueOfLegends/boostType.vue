@@ -8,7 +8,6 @@
       :class="[option.title === 'Server' ? 'server' : 'league']"
     >
       <h4>{{ option.title }}</h4>
-
       <CurrentLeague
         :option="option"
         :imgBasePath="boostType.imgBasePath"

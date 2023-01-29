@@ -1,6 +1,6 @@
 <template>
-  <div class="current-league-container">
-    <div class="league-options">
+  <v-row class="current-league-container">
+    <v-col cols="6" class="league-options">
       <v-select
         full-width
         color="#9C27B0"
@@ -9,39 +9,31 @@
         return-object
         v-model="league"
         item-text="title"
-        @change="changeCurrent()"
       ></v-select>
       <v-select
+        :disabled="!league ? true : false"
         full-width
         color="#9C27B0"
-        :items="option.divisionOptions"
-        label="Division"
+        :items="getDivision"
+        label="League"
         return-object
         v-model="division"
-        @change="changeCurrent()"
         item-text="title"
+        @change="sendCurrentPrice()"
       ></v-select>
-      <v-select
-        full-width
-        color="#9C27B0"
-        :items="option.pointOptions"
-        label="League Point"
-        return-object
-        item-text="title"
-        @change="changeCurrent()"
-      ></v-select>
-    </div>
-    <div class="league-img" v-if="selectedOptionImgUrl">
+    </v-col>
+    <v-col cols="5">
       <img
         class="league"
-        :src="require(`@/assets/images/${imgBasePath}/${selectedOptionImgUrl}`)"
+        :src="require(`@/assets/images/${imgBasePath}/${division.imgUrl}.png`)"
         alt=""
       />
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "CurrentLeague",
   props: {
@@ -52,40 +44,40 @@ export default {
     return {
       league: null,
       division: null,
-      selectedOptionImgUrl: null,
+      selectedOption: null,
     };
   },
   watch: {
     option(newVal, oldVal) {
-      this.changeData();
+      this.changeDivisionOption();
+    },
+    league(newVal) {
+      this.changeDivisionOption();
     },
   },
   methods: {
-    changeCurrent() {
-      if (this.league && this.division) {
-        this.selectedOptionImgUrl =
-          this.league.imgUrl + this.division.imgUrl + ".png";
-        this.$emit("sendCurrent", this.league.rate + this.division.rate);
-      }
+    findDivision(league) {
+      return this.option.divisionOptions.find((el) => el.league == league)
+        .divisions;
     },
-
-    changeData() {
-      this.league = this.option.leagueOptions[1];
-      this.division = this.option.divisionOptions[0];
-      this.selectedOptionImgUrl =
-        this.league.imgUrl + this.division.imgUrl + ".png";
-
-      if (this.league && this.division) {
-        this.selectedOptionImgUrl =
-          this.league.imgUrl + this.division.imgUrl + ".png";
-        this.$emit("sendCurrent", this.league.rate + this.division.rate);
-        console.log(this.league.rate * this.division.rate * 5);
-        // console.log(this.league.rate, this.division.rate);
-      }
+    sendCurrentPrice() {
+      this.$emit("sendCurrent", this.division.price);
+    },
+    changeDivisionOption() {
+      this.division = this.findDivision(this.league)[0];
+      this.sendCurrentPrice();
     },
   },
-  mounted() {
-    this.changeData();
+  mounted() {},
+  created() {
+    this.league = "Silver";
+    this.changeDivisionOption();
+  },
+  computed: {
+    ...mapGetters({}),
+    getDivision() {
+      return !this.league ? [] : this.findDivision(this.league);
+    },
   },
 };
 </script>
@@ -96,8 +88,8 @@ export default {
   justify-content: space-between;
 
   .league-options {
-    width: 190px;
-    height: 280px;
+    // width: 190px;
+    // height: 280px;
   }
   .league-img {
     width: 200px !important;

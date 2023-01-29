@@ -1,6 +1,6 @@
 <template>
   <v-row class="pvp-container" justify="center" align="center">
-    <v-col cols="12 d-flex jc-c ai-c">
+    <v-col cols="12 d-flex jc-c ai-c" class="official-text-container my-4 pt-4">
       <h2>Metin2 Official Servers</h2>
     </v-col>
     <v-row class="server-container d-flex jc-c ai-c">
@@ -41,8 +41,19 @@ export default {
     color: whitesmoke;
   }
 }
+
+.official-text-container {
+  background: linear-gradient(
+    180deg,
+    #222529,
+    rgba(20, 40, 59, 0.921) 46%,
+    #222529
+  );
+  height: 20vh;
+}
+
 .server-container {
-  max-width:70% !important;
+  max-width: 70% !important;
 }
 .d-flex {
   display: flex;
@@ -54,4 +65,3 @@ export default {
   align-items: center;
 }
 </style>
-
