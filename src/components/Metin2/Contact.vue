@@ -1,5 +1,5 @@
 <template>
-  <v-row style="color: white" class="contact-container mt-16"">
+  <v-row style="color: white" class="contact-container mt-16">
     <v-col cols="4" style="display: flex; justify-content: center">
       <div style="justify-self: center" class="col-text">
         <span>
@@ -57,6 +57,32 @@
         Discord
       </div>
     </v-col>
+    <div>
+      <v-row justify="center" class="banner-container">
+        <v-col cols="7">
+          <v-img
+            src="@/assets/images/metin2buy.png"
+            max-height="500"
+            contain
+          ></v-img>
+        </v-col>
+        <v-col cols="4">
+          <v-img
+            src="@/assets/images/metin2purchase.png"
+            max-height="500"
+            contain
+          ></v-img>
+        </v-col>
+      </v-row>
+      <div>
+        <a
+          class="buy-with-crypto"
+          href=""
+        >
+          Buy with Crypto
+        </a>
+      </div>
+    </div>
   </v-row>
 </template>
 
@@ -68,7 +94,7 @@ export default {};
 .contact-container {
   padding: 1rem;
   background: #2c2939;
-  height:10vh;
+  height: 10vh;
 }
 .col-text {
   color: #f8f9fa;
@@ -80,5 +106,10 @@ export default {};
     scale: 1.2;
     transition: 0.4s;
   }
+}
+.banner-container {
+  position: relative;
+  margin-top: 2rem;
+  width: 100vw;
 }
 </style>

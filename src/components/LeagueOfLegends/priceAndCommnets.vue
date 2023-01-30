@@ -9,7 +9,7 @@
               <span class="price currency"> €</span>
             </div>
             <div class="ex-price-container">
-              <span class="price"> 40.94 </span>
+              <span class="price"> {{ price + (price / 100) * 10 }} </span>
               <span class="price currency"> €</span>
             </div>
           </div>
@@ -84,13 +84,13 @@ export default {
       content: "";
       display: block;
       box-sizing: border-box;
-      width: calc(100% + 120px);
+      width: calc(100% + 100px);
       height: 4px;
       padding: 0;
       margin: 0;
       background: rgb(255, 0, 76);
       position: relative;
-      left: -100px;
+      left: -65px;
       top: -20px;
       border-radius: 2px;
       transform: rotate(-15deg);

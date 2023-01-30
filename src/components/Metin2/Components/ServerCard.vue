@@ -27,7 +27,7 @@
         </span>
       </div>
 
-      <div class="buy-container d-flex-centered">
+      <div class="buy-container d-flex-centered" @click="routeToBuy">
         <div class="buy bg-yellow w-75 d-flex-centered">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +53,12 @@ export default {
   name: "ServerCard",
   props: {
     serverInfo: Object,
+  },
+  methods: {
+    routeToBuy() {
+      window.location.href =
+        "https://commerce.coinbase.com/checkout/7800a521-9eed-4444-a8f8-e0e355ef5ef6";
+    },
   },
 };
 </script>
