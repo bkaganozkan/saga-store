@@ -1,25 +1,28 @@
 <template>
   <div>
     <v-select
-      full-width
-      color="#9C27B0"
-      :items="option.serverOptinos"
-      label="Server"
-      return-object
-      item-text="title"
+      :items="servers"
+      v-model="selectedServer"
+      placeholder="Server"
+      @change="serverInfo()"
     ></v-select>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CurrentLeague",
-
-  props: {
-    option: Object,
+  props: { servers: Array },
+  data() {
+    return { selectedServer: "EU West" };
   },
 
+  methods: {
+    serverInfo() {
+      this.$emit("sendServerInfo", this.selectedServer);
+    },
+  },
   mounted() {
+    this.serverInfo();
   },
 };
 </script>

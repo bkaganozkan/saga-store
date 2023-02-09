@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main v-if="isFetched">
     <Header />
     <TopContainer />
     <v-card class="card-container">
@@ -10,7 +10,9 @@
           v-model="tab"
           hide-slider
           continuous
-          color="#7757f7"
+          color="#7757f7"     
+            style="background:#d5d6d8"
+
         >
           <v-tab
             :href="'#' + boostCat.tabName"
@@ -32,6 +34,7 @@
           <v-tab-item
             :value="tab"
             style="display: flex; justify-content: center"
+            class="card-container"
           >
             <v-card flat max-width="80%">
               <v-card-text>
@@ -49,7 +52,7 @@
 import BoostType from "./boostType.vue";
 import Header from "@/components/Header.vue";
 import TopContainer from "@/components/TopContainer.vue";
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "RiotGames",
@@ -61,13 +64,22 @@ export default {
   data() {
     return {
       tab: "tab-lol",
+      loadedData: false,
     };
+  },
+  methods: {
+    ...mapActions(["fetchLoLDataData", "fetchValorantData"]),
+  },
+  async created() {
+    this.loadedData = await this.fetchLoLDataData();
+    // this.fetchValorantData();
   },
 
   computed: {
     ...mapGetters({
       boostCategory: "getBoostCategory",
       getBoostTypesByCategory: "getBoostTypesByCategory",
+      isFetched: "isFetched",
     }),
   },
 };
@@ -105,5 +117,10 @@ export default {
     width: 50px;
     height: 50px;
   }
+}
+.card-container {
+  background-color: #53565a;
+  padding: 1rem;
+  margin-top: 0px !important;
 }
 </style>
