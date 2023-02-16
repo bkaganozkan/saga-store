@@ -1,7 +1,8 @@
 <template>
-  <v-col cols="4">
-
-    <p class="lostark-title">LOST ARK ALL SERVER <span class="gold">GOLD</span> SALE</p>
+  <v-col cols="5">
+    <p class="lostark-title">
+      LOST ARK ALL SERVER <span class="gold">GOLD</span> SALE
+    </p>
 
     <label class="label-text" for="serverLocation">Server Location</label>
     <v-select
@@ -25,7 +26,7 @@
 
     <label class="label-text" for="serverName">Piece (1000g)</label>
     <v-text-field
-    min="10"
+      min="10"
       class="select-area"
       v-model="quantity"
       outlined
@@ -43,13 +44,19 @@
         €
       </span>
 
-      <v-btn dark color="#3155A3">Buy Now</v-btn>
+      <v-btn
+        dark
+        color="#3155A3"
+        @click="routeToBuyMethod(getDataOfPurchase)"
+        :disabled="checkDatas"
+        >Buy Now</v-btn
+      >
     </v-row>
   </v-col>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => ({
     selectedServer: null,
@@ -63,8 +70,31 @@ export default {
     getServerInfo() {
       return this.$store.getters.getServerInfo(this.selectedServerLocation);
     },
+    checkDatas() {
+      let items = {
+        quantity: this.quantity,
+        selectedServer: this.selectedServer,
+        totalAmount: this.totalAmount,
+        selectedServerLocation: this.selectedServerLocation,
+      };
+      for (let item in items) {
+        if (!items[item]) return true;
+      }
+      return false;
+    },
+    getDataOfPurchase() {
+      let items = {
+        quantity: this.quantity,
+        selectedServer: this.selectedServer,
+        information: this.information,
+        totalAmount: this.totalAmount,
+        selectedServerLocation: this.selectedServerLocation,
+      };
+      return items;
+    },
   },
   methods: {
+    ...mapActions(["routeToBuyMethod"]),
     changedServer() {
       if (this.quantity == null) {
         this.quantity = 1;
@@ -82,36 +112,36 @@ export default {
 </script>
 
 <style lang="scss">
-$text-color: #2D2D2D;
-$gold-color: #FED500;
+$text-color: #2d2d2d;
+$gold-color: #fed500;
 
 @function toRem($value) {
   $remValue: ($value / 16) + rem;
   @return $remValue;
 }
 
-.v-text-field input{
+.v-text-field input {
   margin: 0 !important;
 }
 
-.v-text-field--outlined > .v-input__control > .v-input__slot{
+.v-text-field--outlined > .v-input__control > .v-input__slot {
   min-height: toRem(40) !important;
 }
 
-.v-text-field__details{
+.v-text-field__details {
   display: none !important;
 }
 
-.textarea{
+.textarea {
   margin: 0 0 5px 0 !important;
 }
 
-.lostark-title{
+.lostark-title {
   color: $text-color;
   font-weight: 500;
   text-shadow: 2px 2px #00000040;
 
-  & .gold{
+  & .gold {
     color: $gold-color;
   }
 }

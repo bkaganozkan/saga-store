@@ -25,8 +25,8 @@ const state = {
   ],
 };
 const getters = {
-  isFetched:(state) => {
-    return state.lolDataFethed
+  isFetched: (state) => {
+    return state.lolDataFethed;
   },
   getBoostCategory: (state) => {
     return state.boostCategory;
@@ -41,7 +41,11 @@ const mutations = {
       if (el.tabName == payload.tabName) {
         return {
           ...el,
-          ...{ servers:payload.servers, league: payload.leagues, divisions: payload.divisions },
+          ...{
+            servers: payload.servers,
+            league: payload.leagues,
+            divisions: payload.divisions,
+          },
         };
       } else return el;
     });
@@ -49,7 +53,7 @@ const mutations = {
 };
 const actions = {
   fetchLoLDataData: async ({ state, commit }) => {
-    let jsons = ["/lol.json",'tft.json', "valorant.json"];
+    let jsons = ["/lol.json", "tft.json", "valorant.json"];
     for (let item of jsons) {
       let res = await API.get(item);
       const data = res.data;
@@ -57,6 +61,8 @@ const actions = {
     }
     state.lolDataFethed = true;
   },
+
+
 };
 
 export default { state, getters, actions, mutations };

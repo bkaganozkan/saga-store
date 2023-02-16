@@ -5,6 +5,8 @@
       v-model="selectedServer"
       placeholder="Server"
       @change="serverInfo()"
+      solo
+      class="py-2"
     ></v-select>
   </div>
 </template>

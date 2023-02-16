@@ -220,7 +220,6 @@ const getters = {
   },
 
   calculateSocialPrice: () => (price, amount) => {
-    console.log(price, amount);
     return price * amount;
   },
 };

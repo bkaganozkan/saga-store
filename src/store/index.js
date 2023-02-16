@@ -11,7 +11,12 @@ export default new Vuex.Store({
   state: {},
   getters: {},
   mutations: {},
-  actions: {},
+  actions: {
+    routeToBuyMethod: ({}, payload) => {
+      const encodedURL = encodeURIComponent(JSON.stringify(payload));
+      window.open(`http://89.252.135.20/payment?param=${encodedURL}`, "_blank");
+    },
+  },
   modules: {
     LoL,
     Metin2,

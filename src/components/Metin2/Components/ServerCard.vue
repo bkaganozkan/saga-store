@@ -27,7 +27,7 @@
         </span>
       </div>
 
-      <div class="buy-container d-flex-centered" @click="routeToBuy">
+      <div class="buy-container d-flex-centered" @click="routeToBuyMethod(serverInfo)">
         <div class="buy bg-yellow w-75 d-flex-centered">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@
               d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
             ></path>
           </svg>
-          <span>BUY</span>
+          <span >BUY</span>
         </div>
       </div>
     </v-card>
@@ -49,17 +49,23 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: "ServerCard",
   props: {
     serverInfo: Object,
   },
   methods: {
+    ...mapActions(['routeToBuyMethod']),
     routeToBuy() {
       window.location.href =
         "https://commerce.coinbase.com/checkout/7800a521-9eed-4444-a8f8-e0e355ef5ef6";
     },
   },
+  computed:{
+    
+  }
+
 };
 </script>
 

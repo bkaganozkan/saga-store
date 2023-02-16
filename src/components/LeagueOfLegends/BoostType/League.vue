@@ -2,12 +2,19 @@
   <v-row>
     <v-col cols="6">
       <v-select
+        class="py-2"
         :items="option.league"
         v-model="league"
-        placeholder="League Option" 
-        solo       
+        placeholder="League Option"
+        solo
+        @change="
+          leagueType == 'current'
+            ? sendCurrentLeagueData()
+            : sendDesireLeagueData()
+        "
       ></v-select>
       <v-select
+        class="py-2"
         :disabled="!league ? true : false"
         full-width
         color="#9C27B0"
@@ -16,6 +23,7 @@
         return-object
         v-model="division"
         item-text="title"
+        solo
         @change="
           leagueType == 'current'
             ? sendCurrentLeagueData()
@@ -57,15 +65,20 @@ export default {
       return this.option.divisions.find((el) => el.league == league).divisions;
     },
     changeDivisionOption() {
-      this.division = this.findDivision(this.league)[0];
+      if (this.leagueType === "desire")
+        this.division = this.findDivision(this.league)[1];
+      else this.division = this.findDivision(this.league)[0];
     },
     sendCurrentLeagueData() {
+      this.changeDivisionOption();
       this.$emit("sendCurrent", {
         league: this.league,
         division: this.division,
       });
     },
     sendDesireLeagueData() {
+      this.changeDivisionOption();
+
       this.$emit("sendDesire", {
         league: this.league,
         division: this.division,

@@ -31,6 +31,7 @@
         ></v-text-field>
         <label class="label-text" for="link">Link</label>
         <v-text-field
+          v-model="link"
           style="boder-radius: 8px"
           outlined
           placeholder="Link"
@@ -44,21 +45,31 @@
             outlined
             dense
             no-resize
+            v-model="comment"
             placeholder="Comments"
           ></v-textarea>
         </template>
-        <v-row justify="space-between" class="px-3">
-          <span class="price-text"
-            >Price
-            {{
-              method && method.price
-                ? getTotalPrice(method.price, totalAmount)
-                : 0
-            }}
-            €
-          </span>
-
-          <v-btn dark color="#3155A3">Purchase</v-btn>
+        <v-row justify="space-between" class="px-4">
+          <v-col cols="8" class="px-0">
+            <span class="price-text"
+              >Price
+              {{
+                method && method.price
+                  ? getTotalPrice(method.price, totalAmount)
+                  : 0
+              }}
+              €
+            </span>
+          </v-col>
+          <v-col cols="4" class="px-0">
+            <v-btn
+              @click="routeToBuyMethod(getData)"
+              dark
+              color="#3155A3"
+              :disabled="checkData"
+              >Purchase</v-btn
+            >
+          </v-col>
         </v-row>
       </v-col>
     </v-row>
@@ -66,7 +77,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SocialInfo",
   data() {
@@ -75,6 +86,7 @@ export default {
       method: null,
       totalAmount: 1,
       link: "",
+      comment: "",
     };
   },
 
@@ -84,12 +96,37 @@ export default {
     },
   },
 
+  methods: {
+    ...mapActions(["routeToBuyMethod"]),
+  },
+
   computed: {
     ...mapGetters({
       socialOption: "getSocialOptions",
       platforms: "selectSocialPlatform",
       getTotalPrice: "calculateSocialPrice",
     }),
+    getData() {
+      return {
+        selectedPlatform: this.selectedPlatform,
+        method: this.method,
+        totalAmount: this.totalAmount,
+        link: this.link,
+        comment: this.comment,
+      };
+    },
+    checkData() {
+      let items = {
+        selectedPlatform: this.selectedPlatform,
+        method: this.method,
+        totalAmount: this.totalAmount,
+        link: this.link,
+      };
+      for (let item in items) {
+        if (!items[item]) return true;
+      }
+      return false;
+    },
   },
 };
 </script>

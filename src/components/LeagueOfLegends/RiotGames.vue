@@ -10,9 +10,8 @@
           v-model="tab"
           hide-slider
           continuous
-          color="#7757f7"     
-            style="background:#d5d6d8"
-
+          color="#7757f7"   
+          class=""  
         >
           <v-tab
             :href="'#' + boostCat.tabName"
@@ -36,7 +35,7 @@
             style="display: flex; justify-content: center"
             class="card-container"
           >
-            <v-card flat max-width="80%">
+            <v-card flat max-width="80%" class="pa-12">
               <v-card-text>
                 <BoostType :boostType="getBoostTypesByCategory(tab)" />
               </v-card-text>
@@ -119,7 +118,7 @@ export default {
   }
 }
 .card-container {
-  background-color: #53565a;
+  background-color: #8C9EFF;
   padding: 1rem;
   margin-top: 0px !important;
 }

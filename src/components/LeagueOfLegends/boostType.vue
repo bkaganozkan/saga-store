@@ -13,44 +13,57 @@
     <v-col cols="4">
       <Server :servers="boostType.servers" @sendServerInfo="getServerInfo" />
     </v-col>
-    <v-row justify="end">
-      <v-col cols="8" class="d-flex justify-center">
+    <v-row>
+      <v-col cols="6" class="d-flex justify-center pl-7">
         <v-img
           src="@/assets/images/lolboost.png"
-          width="600"
-          height="250"
+          width="350"
+          height="350"
+          cover
         ></v-img>
       </v-col>
-      <v-col cols="2" class="pa-2">
-        <v-row justify="center">
-          <v-col cols="8">
-            <a href="https://discord.gg/4STTsZGz" class="discord">
-              <img src="@/assets/images/discord.png" class="size" alt="" />
-            </a>
-          </v-col>
-          <v-col cols="12">
-            <div class="text-item">Buy Via Discord</div>
-          </v-col>
-          <v-col cols="12" class="ma-2 d-flex justify-center">
-              <v-btn color="primary">Purchase</v-btn>
-          </v-col>
-        </v-row>
-      </v-col>
 
-      <v-col cols="2">
-        <div class="recent-price-container">
-          <span class="price">
-            {{ calculateLeagueAndPrice.lastPrice }}
-          </span>
-          <span class="price currency"> €</span>
+      <template v-if="calculateLeagueAndPrice.lastPrice > 0">
+        <v-col cols="2">
+          <v-col cols="12" class="recent-price-container">
+            <span class="price">
+              {{ calculateLeagueAndPrice.lastPrice }}
+            </span>
+            <span class="price currency"> €</span>
+          </v-col>
+          <v-col cols="12" class="ex-price-container">
+            <span class="price">
+              {{ calculateLeagueAndPrice.lastPrice }}
+            </span>
+            <span class="price currency"> €</span>
+          </v-col>
+        </v-col>
+
+        <v-col cols="4" class="pa-2" style="display: grid">
+          <v-row justify="center" class="buy-container">
+            <v-col cols="6" style="text-align: center">
+              <a href="https://discord.gg/4STTsZGz" class="discord">
+                <img src="@/assets/images/discord.png" class="size" alt="" />
+              </a>
+            </v-col>
+            <v-col cols="12">
+              <div class="text-item">Buy Via Discord</div>
+            </v-col>
+            <v-col cols="12" class="ma-2 d-flex justify-center">
+              <v-btn @click="routeToBuyMethod(lastCalculation)" color="primary"
+                >Purchase</v-btn
+              >
+            </v-col>
+          </v-row>
+        </v-col>
+      </template>
+      <template>
+        <div class="not-allowed-container">
+          <div class="text-container">
+            <span class="text"> This Not Allowed </span>
+          </div>
         </div>
-        <div class="ex-price-container">
-          <span class="price">
-            {{ calculateLeagueAndPrice.lastPrice }}
-          </span>
-          <span class="price currency"> €</span>
-        </div>
-      </v-col>
+      </template>
     </v-row>
   </v-row>
 </template>
@@ -59,6 +72,7 @@
 import League from "./BoostType/League.vue";
 import Server from "./BoostType/Server.vue";
 import PriceAndPurchase from "./BoostType/PriceAndPurchase.vue";
+import { mapActions } from 'vuex';
 export default {
   components: {
     League,
@@ -83,6 +97,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(['routeToBuyMethod']),
     getCurrent(current) {
       this.current = current;
     },
@@ -173,5 +188,41 @@ export default {
   font-size: 24px;
   font-weight: 500;
   color: #0f0f0f;
+  text-align: center;
+}
+.buy-container {
+  background: rgba(#02202f, 0.3);
+  width: 300px;
+  height: 250px;
+  border-radius: 25%;
+  justify-self: end;
+}
+.not-allowed-container {
+  flex: 1 1;
+  padding: 12px;
+  display: grid;
+
+  .text-container {
+    display: grid;
+    width: 75%;
+    height: 50%;
+    text-align: center;
+    background: linear-gradient(
+      119deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(121, 9, 102, 1) 27%,
+      rgba(59, 27, 221, 1) 71%,
+      rgba(0, 212, 255, 1) 100%
+    );
+
+    .text {
+      color: #fff;
+      align-self: center;
+      justify-self: center;
+      font-size: 24px;
+      font-family: sans-serif;
+      font-weight: 600;
+    }
+  }
 }
 </style>
