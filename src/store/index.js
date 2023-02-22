@@ -4,6 +4,7 @@ import LoL from "./modules/lolBoost";
 import Metin2 from "./modules/metin2";
 import LostArk from "./modules/lostark";
 import SocialMedia from "./modules/social";
+import Cart from "./modules/cart";
 
 Vue.use(Vuex);
 
@@ -22,5 +23,6 @@ export default new Vuex.Store({
     Metin2,
     LostArk,
     SocialMedia,
+    Cart
   },
 });

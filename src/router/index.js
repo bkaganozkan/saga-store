@@ -5,6 +5,7 @@ import RiotGames from "@/components/LeagueOfLegends/RiotGames.vue";
 import Metin2 from "@/components/Metin2/Metin2.vue";
 import LostArk from "@/components/LostArk/LostArk.vue";
 import SocialMedia from "@/components/SocialMedia/SocialMedia.vue";
+import Purchase from "@/views/Purchase.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/socialmedia",
     name: "SocialMedia",
     component: SocialMedia,
+  },
+  {
+    path: "/purchase",
+    name: "Purchase",
+    component: Purchase,
   },
 ];
 

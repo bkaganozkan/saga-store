@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // axios.defaults.baseURL = "https://berat-static-data.onrender.com";
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://berat-static-data.onrender.com";
 
 class API {
   constructor() {}

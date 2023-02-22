@@ -20,11 +20,15 @@
       <v-col cols="2" class="link-container">
         <router-link to="/socialmedia">Social Media</router-link>
       </v-col>
+      <v-col cols="2" class="link-container">
+        <router-link to="/purchase">Cart {{ cartLength }}</router-link>
+      </v-col>
     </v-row>
   </v-app-bar>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -33,9 +37,11 @@ export default {
   },
   mounted() {
     this.currentPath = this.$route.fullPath;
-
-    // var x = document.querySelectorAll(".scroll");
-    // console.log(x);
+  },
+  computed: {
+    ...mapGetters({
+      cartLength: "cartItemLength",
+    }),
   },
 };
 </script>

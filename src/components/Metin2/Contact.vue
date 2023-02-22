@@ -74,14 +74,6 @@
           ></v-img>
         </v-col>
       </v-row>
-      <div>
-        <a
-          class="buy-with-crypto"
-          href=""
-        >
-          Buy with Crypto
-        </a>
-      </div>
     </div>
   </v-row>
 </template>
