@@ -15,6 +15,21 @@ export default new Vuex.Store({
   actions: {
     routeToBuyMethod: ({}, payload) => {
       const encodedURL = encodeURIComponent(JSON.stringify(payload));
+      window.open(
+        `https://sageyangstore.com/payment?param=${encodedURL}`,
+        "_blank"
+      );
+    },
+    routeToBuyMethodWithCart: ({}, payload) => {
+      console.log(payload);
+      const encodedURL = encodeURIComponent(JSON.stringify(payload));
+      window.open(
+        `https://sageyangstore.com/payment?param=${encodedURL}`,
+        "_blank"
+      );
+    },
+    routeToBuyMethodWithCartByCrypto: ({}, payload) => {
+      const encodedURL = encodeURIComponent(JSON.stringify(payload));
       window.open(`http://89.252.135.20/payment?param=${encodedURL}`, "_blank");
     },
   },
@@ -23,6 +38,6 @@ export default new Vuex.Store({
     Metin2,
     LostArk,
     SocialMedia,
-    Cart
+    Cart,
   },
 });

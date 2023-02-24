@@ -23,7 +23,7 @@
       </div>
       <div class="centered">
         <span class="server-text">
-          {{ serverInfo.price }}
+          {{ serverInfo.price }} {{serverInfo.currency}}
         </span>
       </div>
 
