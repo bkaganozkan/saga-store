@@ -72,7 +72,7 @@
 import League from "./BoostType/League.vue";
 import Server from "./BoostType/Server.vue";
 import PriceAndPurchase from "./BoostType/PriceAndPurchase.vue";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   components: {
     League,
@@ -97,7 +97,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['routeToBuyMethod']),
+    ...mapActions(["routeToBuyMethod"]),
     getCurrent(current) {
       this.current = current;
     },
@@ -114,9 +114,10 @@ export default {
         this.lastCalculation.league = `${this.current.league}-${this.desire.league}`;
         this.lastCalculation.division = `${this.current.division.title}-${this.desire.division.title}`;
         this.lastCalculation.server = `${this.server}`;
-        this.lastCalculation.price = `${this.desire.division.price}-${this.current.division.price}`;
-        this.lastCalculation.lastPrice =
+        this.lastCalculation.priceText = `${this.desire.division.price}-${this.current.division.price}`;
+        this.lastCalculation.price =
           this.desire.division.price - this.current.division.price;
+        this.lastCalculation.panel = 4;
       }
       return this.lastCalculation;
     },

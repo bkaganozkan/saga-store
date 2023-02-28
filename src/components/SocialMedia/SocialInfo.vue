@@ -113,6 +113,8 @@ export default {
         totalAmount: this.totalAmount,
         link: this.link,
         comment: this.comment,
+        price: this.getTotalPrice(this.method.price, this.totalAmount),
+        panel: 3,
       };
     },
     checkData() {

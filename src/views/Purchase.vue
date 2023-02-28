@@ -37,6 +37,7 @@
                   info: info,
                   cart: cartItems,
                   price: totalPrice,
+                  panel: 2
                 })
               "
               color="success"

@@ -87,8 +87,9 @@ export default {
         quantity: this.quantity,
         selectedServer: this.selectedServer,
         information: this.information,
-        totalAmount: this.totalAmount,
+        price: this.totalAmount,
         selectedServerLocation: this.selectedServerLocation,
+        panel: 1,
       };
       return items;
     },
