@@ -18,17 +18,12 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { mdiDelete, mdiTrashCanOutline } from "@mdi/js";
 export default {
   props: {
     item: Object,
   },
   data() {
     return {
-      icons: {
-        mdiDelete,
-        mdiTrashCanOutline,
-      },
     };
   },
 
