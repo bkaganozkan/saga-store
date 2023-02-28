@@ -23,17 +23,20 @@
         ></v-img>
       </v-col>
 
-      <template v-if="calculateLeagueAndPrice.lastPrice > 0">
+      <template v-if="calculateLeagueAndPrice.price > 0">
         <v-col cols="2">
           <v-col cols="12" class="recent-price-container">
             <span class="price">
-              {{ calculateLeagueAndPrice.lastPrice }}
+              {{ calculateLeagueAndPrice.price }}
             </span>
             <span class="price currency"> €</span>
           </v-col>
           <v-col cols="12" class="ex-price-container">
             <span class="price">
-              {{ calculateLeagueAndPrice.lastPrice }}
+              {{
+                calculateLeagueAndPrice.price +
+                (calculateLeagueAndPrice.price / 100) * 25
+              }}
             </span>
             <span class="price currency"> €</span>
           </v-col>

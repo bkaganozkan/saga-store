@@ -24,7 +24,7 @@
       @change="changedServer()"
     ></v-select>
 
-    <label class="label-text" for="serverName">Piece (1000g)</label>
+    <label class="label-text" for="serverName">Price (1000g)</label>
     <v-text-field
       min="10"
       class="select-area"
@@ -106,7 +106,9 @@ export default {
       this.calculateTotalAmount();
     },
     calculateTotalAmount() {
-      this.totalAmount = this.selectedServer.price * this.quantity;
+      this.totalAmount = this.selectedServer
+        ? this.selectedServer.price * this.quantity
+        : this.quantity;
     },
   },
 };
